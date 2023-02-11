@@ -1,13 +1,31 @@
-import {LitElement, html} from 'lit';
-import {customElement, property} from 'lit/decorators.js';
+import {LitElement, html, css} from 'lit';
+import {customElement} from 'lit/decorators.js';
 
 @customElement('ae-button')
 export class AeButton extends LitElement {
-  @property()
-  version = 'STARTING';
+  static styles = css`
+    * {
+      box-sizing: border-box;
+    }
+
+    :host {
+      display: block;
+    }
+
+    button {
+      border-radius: 5px;
+      padding: 0.5rem 1rem;
+      border: none;
+      cursor: pointer;
+    }
+  `;
 
   render() {
-    return html`<button></button>`;
+    return html`
+      <button>
+        <slot></slot>
+      </button>
+    `;
   }
 }
 
