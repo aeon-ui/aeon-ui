@@ -31,7 +31,7 @@ export class Ae extends LitElement {
   @property() p: string;
 
   // parse given properties
-  dynamicStyles(): string {
+  inheritStyles(): string {
     // TODO: find cleaner way to parse props
     const stylesArr: string[] = [];
     if (this.width || this.w) stylesArr.push(`width: ${this.width || this.w};`);
