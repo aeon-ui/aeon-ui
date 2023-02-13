@@ -19,7 +19,7 @@ export class AeButton extends Ae {
   protected render() {
     return html`
       <style>
-        ${this.defaultStyles()}
+        ${this.dynamicStyles()}
       </style>
       <button>
         <slot></slot>

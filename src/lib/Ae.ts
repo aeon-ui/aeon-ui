@@ -26,7 +26,7 @@ export class Ae extends LitElement {
   @property() height: string;
   @property() h: string;
 
-  defaultStyles() {
+  dynamicStyles() {
     return `
       :host {
         width: ${this.w || this.width};
