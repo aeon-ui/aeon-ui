@@ -25,14 +25,21 @@ export class Ae extends LitElement {
   @property() w: string;
   @property() height: string;
   @property() h: string;
+  @property() margin: string;
+  @property() m: string;
+  @property() padding: string;
+  @property() p: string;
 
-  dynamicStyles() {
-    return `
-      :host {
-        width: ${this.w || this.width};
-        height: ${this.h || this.height};
-      }
-    `;
+  // parse given properties
+  dynamicStyles(): string {
+    // TODO: find cleaner way to parse props
+    const stylesArr: string[] = [];
+    if (this.width || this.w) stylesArr.push(`width: ${this.width || this.w};`);
+    if (this.height || this.h) stylesArr.push(`height: ${this.height || this.h};`);
+    if (this.margin || this.m) stylesArr.push(`margin: ${this.margin || this.m};`);
+    if (this.padding || this.p) stylesArr.push(`padding: ${this.padding || this.p};`);
+
+    return `:host{${stylesArr.join('')}}`;
   }
 
   constructor() {
