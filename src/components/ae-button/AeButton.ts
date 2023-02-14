@@ -7,6 +7,11 @@ export class AeButton extends Ae {
   static styles = [
     Ae.styles,
     css`
+      :host {
+        /* may add background to Ae class */
+        background: none;
+      }
+
       button {
         border-radius: 5px;
         padding: 0.5rem 1rem;
@@ -16,10 +21,29 @@ export class AeButton extends Ae {
     `,
   ];
 
+  // dynamic property styles
+  @property() background: string;
+  @property() bg: string;
+  @property() hover: string;
+
+  // parse given properties
+  dynamicStyles(): string {
+    // TODO: refactor for cleaner code quality
+    let hoverStyle = `button:hover{background: ${this.hover || '#d0d0d7'}}`;
+    const stylesArr: string[] = [];
+    if (this.background || this.bg) {
+      stylesArr.push(`background: ${this.background || this.bg};`);
+      if (!this.hover) hoverStyle = '';
+    }
+
+    return `button{${stylesArr.join('')}} ${hoverStyle}`;
+  }
+
   protected render() {
     return html`
       <style>
-        ${this.defaultStyles()}
+        ${this.inheritStyles()}
+        ${this.dynamicStyles()}
       </style>
       <button>
         <slot></slot>
