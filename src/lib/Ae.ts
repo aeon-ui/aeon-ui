@@ -29,6 +29,8 @@ export class Ae extends LitElement {
   @property() m: string;
   @property() padding: string;
   @property() p: string;
+  @property() background: string;
+  @property() bg: string;
 
   // parse given properties
   inheritStyles(): string {
@@ -38,6 +40,7 @@ export class Ae extends LitElement {
     if (this.height || this.h) stylesArr.push(`height: ${this.height || this.h};`);
     if (this.margin || this.m) stylesArr.push(`margin: ${this.margin || this.m};`);
     if (this.padding || this.p) stylesArr.push(`padding: ${this.padding || this.p};`);
+    if (this.background || this.bg) stylesArr.push(`background: ${this.background || this.bg};`);
 
     return `:host{${stylesArr.join('')}}`;
   }

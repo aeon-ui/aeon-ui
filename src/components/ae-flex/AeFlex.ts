@@ -14,7 +14,12 @@ export class AeFlex extends Ae {
   ];
 
   protected render() {
-    return html`<slot></slot>`;
+    return html`
+      <style>
+        ${this.inheritStyles()}
+      </style>
+      <slot></slot>
+    `;
   }
 }
 

@@ -6,9 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Component Demo</title>
   <script type="module" src="./build/src/index.js"></script>
+  <style>
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
 </head>
 <body>
-  <ae-flex>
+  <ae-flex background="lightblue" margin="100px 0px">
     <ae-button width="100px" height="50px" bg="red">Button</ae-button>
     <ae-button width="100px" height="50px" bg="blue" hover="purple">Button</ae-button>
     <ae-button width="100px" height="50px">Button</ae-button>
